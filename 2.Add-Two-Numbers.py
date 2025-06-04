@@ -57,7 +57,7 @@ class Solution(object):
 
 
 #Below is an Example 
-#l1 & l2 is already provided as a linked list 
+#l1 & l2 is already provided as a linked list in leetcode
 # this example will not generate a valid output in you local ide. Works Only in leetcode
 l1 = [2,4,3]
 l2 = [5,6,4]
