@@ -46,7 +46,8 @@ class Solution(object):
                 current = current.next
             return head
 
-        # Instead of returning a list, return the head of the linked list
+        # Instead of returning a list, return the head of the linked  to match the output format
+
         return list_to_linked_list(ans)
 
 
