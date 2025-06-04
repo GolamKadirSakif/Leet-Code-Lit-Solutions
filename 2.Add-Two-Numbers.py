@@ -1,8 +1,8 @@
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+class ListNode(object):
+     def __init__(self, val=0, next=None):
+         self.val = val
+         self.next = next
 
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
@@ -37,7 +37,7 @@ class Solution(object):
             ans.append(int(i))
 
         def list_to_linked_list(lst):
-            if not lst:
+            if not lst: #Safety
                 return None
             head = ListNode(lst[0])  # Create first node
             current = head
@@ -57,7 +57,7 @@ class Solution(object):
 
 #Below is an Example 
 #l1 & l2 is already provided as a linked list 
-# this example will notr output a valid output in you local ide. Only in leetcode
+# this example will not generate a valid output in you local ide. Works Only in leetcode
 l1 = [2,4,3]
 l2 = [5,6,4]
 x=Solution()
