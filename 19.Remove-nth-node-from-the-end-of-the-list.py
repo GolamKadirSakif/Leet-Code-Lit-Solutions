@@ -1,5 +1,5 @@
 class ListNode(object):
-     def __init__(self, val=0, next=None):
+    def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 class Solution(object):
@@ -8,16 +8,35 @@ class Solution(object):
         :type head: Optional[ListNode]
         :type n: int
         :rtype: Optional[ListNode]
+
         """
+        head=head
+        current=head
+        k=0
+        while current!=None:
+            k+=1
+            current=current.next
+
+
         i=0
         head=head
-        prev=None
+        prev=head
         current=head
+        
         while current!=None:
 
-            if i==n:
+            if i==((k-n)) and i==0:
+                head=current.next
                 prev.next=current.next
                 current.next=None
+                
+                current=prev.next
+
+            elif i==((k-n)):
+                
+                prev.next=current.next
+                current.next=None
+                
                 current=prev.next
             else:
                 prev=current
@@ -30,6 +49,13 @@ class Solution(object):
         while current!=None:
             print(current.val)
             current=current.next
+
+        if n==1 and k==1:
+            return None
+        else:
+            return head
+
+        
 
 
             
@@ -47,8 +73,8 @@ class Solution(object):
 
 
             
-l1 = [2,4,3]
+l1 = [1,2]
 l2 = [5,6,4]
 x=Solution()
 ll=x.list_to_linked_list(l1)
-print(x.removeNthFromEnd(ll,1))
+print(x.removeNthFromEnd(ll,2))
