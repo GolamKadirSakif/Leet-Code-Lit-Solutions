@@ -32,41 +32,31 @@ class Solution(object):
             l+=1
             current=current.next
 
+        if l==1:
+            return head
 
-        
-        list_node=np.array([0]*l)
 
-        i=0
-        current=head
-        while current!=None:
+  
+
+        for i in range(k%l):
             
-            list_node[i]=current.val
-            i+=1
-            current=current.next
+            current=head
+            g=1
+            s_l=None
 
-        
-        
+            while current!=None:
+                if g==l-1:#second last
+                    s_l=current
+                elif g==l: #last
+                    s_l.next=None
+                    current.next=head
+                    head=current
+                    break
 
-        for p in range(k):
-            temp=list_node[l-1]
-            for g in range(l-2,-1,-1):
-                list_node[g+1]=list_node[g]
 
-            list_node[0]=temp
+                current=current.next
+                g+=1
             
-
-
-
-
-
-
-        
-
-
-        
-
-        head=list_to_linked_list(list_node)
-        
 
         return head
 
