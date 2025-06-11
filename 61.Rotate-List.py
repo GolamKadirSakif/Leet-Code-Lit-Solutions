@@ -7,6 +7,16 @@ class ListNode(object):
 
 
 class Solution(object):
+    def list_to_linked_list(arr):
+        """Convert a NumPy array (or list) into a linked list."""
+        if arr is None or len(arr) == 0:
+            return None
+        head = ListNode(arr[0])
+        current = head
+        for val in arr[1:]:
+            current.next = ListNode(val)
+            current = current.next
+        return head
     def rotateRight(self, head, k):
         """
         :type head: Optional[ListNode]
@@ -35,39 +45,32 @@ class Solution(object):
             current=current.next
 
         
-        old_lst=list_node
         
-        init=list_node[l-1]
-        
-
 
         for p in range(k):
-            g=1
-            lst=np.array([0]*l)
-            for j in range(l-1):
-                lst[g]=old_lst[j]
-                
-                g+=1
-            lst[0]=init
-            init=lst[l-1]
-            
-            old_lst=lst
+            temp=list_node[l-1]
+            for g in range(l-2,-1,-1):
+                list_node[g+1]=list_node[g]
 
-        head=list_to_linked_list(old_lst)
+            list_node[0]=temp
+            
+
+
+
+
+
+
+        
+
+
+        
+
+        head=list_to_linked_list(list_node)
         
 
         return head
 
-    def list_to_linked_list(arr):
-        """Convert a NumPy array (or list) into a linked list."""
-        if arr is None or len(arr) == 0:
-            return None
-        head = ListNode(arr[0])
-        current = head
-        for val in arr[1:]:
-            current.next = ListNode(val)
-            current = current.next
-        return head
+    
 
  
         
@@ -90,7 +93,7 @@ linked_list_heads = list_to_linked_list(lst)
 
 
 x=Solution()
-z=x.rotateRight(linked_list_heads,2000000000)
+z=x.rotateRight(linked_list_heads,2)
 
 current=z
 while current!=None:
