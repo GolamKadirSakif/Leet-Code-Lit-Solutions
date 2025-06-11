@@ -1,9 +1,10 @@
-import numpy as np
+
 # Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
 
 
 class Solution(object):
@@ -24,42 +25,45 @@ class Solution(object):
         :rtype: Optional[ListNode]
         """
         
+        #Corner Case
         if head==None:
             return None
+
+
+
         l=0
         current=head
+        last=None
         while current!=None:
             l+=1
+            if current.next==None: #last node
+                last=current
             current=current.next
+        
+            
 
+
+
+        #Corner Case
         if l==1:
             return head
 
 
+        #making a circular list
+        last.next=head
   
-
-        for i in range(k%l):
+        current=head
+        for i in range((l-(k%l))):
+            if i==((l-(k%l))-1):
+                head=current.next
+                current.next=None
+                break
+            current=current.next
             
-            current=head
-            g=1
-            s_l=None
-
-            while current!=None:
-                if g==l-1:#second last
-                    s_l=current
-                elif g==l: #last
-                    s_l.next=None
-                    current.next=head
-                    head=current
-                    break
-
-
-                current=current.next
-                g+=1
+            
             
 
         return head
-
     
 
  
@@ -77,13 +81,13 @@ def list_to_linked_list(arr):
 
 
 
-lst = [1,2,3]
+lst = [1,2,3,4,5]
 linked_list_heads = list_to_linked_list(lst)
 
 
 
 x=Solution()
-z=x.rotateRight(linked_list_heads,2)
+z=x.rotateRight(linked_list_heads,5)
 
 current=z
 while current!=None:
